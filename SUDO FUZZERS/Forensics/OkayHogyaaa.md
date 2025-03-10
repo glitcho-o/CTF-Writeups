@@ -39,15 +39,15 @@ Now I have combined all of them in a seprate folder.
 
 As you can see from the files this is a kali vm machine and now we simply need to open it in VMware.
 
-![Opening VM](ss9.png)
+![Opening VM](./images/ss9.png)
 
 Power on the machine
 
-![Power on the VM](ss10.png)
+![Power on the VM](./images/ss10.png)
 
 the machine will ask for a snapshot file to open the VM with extension .vmsn
 
-![findin snapshot](ss11.png)
+![findin snapshot](./images/ss11.png)
 
 ```bash
 # Command used
