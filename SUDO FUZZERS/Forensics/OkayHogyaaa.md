@@ -96,7 +96,7 @@
     ![zsh_history](./images/ss20.png)
 
 18. **Run the Script to Unlock the Folder**  
-    After obtaining the key, create the `key.txt` file, place the key in it, and run the script to unlock the folder.  
+    After obtaining the key, create the `key.txt` file, place the key in it, and run the script to unlock the folder. The script after running will also demand a key paste the smae key as you pasted in the `key.txt` file.
     ![Unlocking Folder](./images/ss21.png)  
     ![Unlocked Folder](./images/ss22.png)
 
@@ -108,5 +108,5 @@
 
 ## Conclusion
 
-You have successfully completed the challenge by decoding the ICMP data, analyzing the Google Drive contents, extracting the Kali VM, and using the correct key to unlock the folder. The final flag is now obtained.
+We have successfully completed the challenge by decoding the ICMP data, analyzing the Google Drive contents, extracting the Kali VM, and using the correct key to unlock the folder. The final flag is now obtained.
 
