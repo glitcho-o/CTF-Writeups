@@ -113,9 +113,4 @@ Now in the folder in the txt file you will find the flag.
 
 ![Flag](./images/ss24.png)
 
-
-
-
-
-
-
+Write .md file in a good way 
