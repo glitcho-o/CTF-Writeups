@@ -1,116 +1,112 @@
-# Challenge Name - Okayhogyaaa
-# Author: g0kbur0 
-# Writeup written by: Noor Ul Hassan
-### Category: Forensics
-### Difficulty: Medium
+# Challenge Name: Okayhogyaaa
+**Author**: g0kbur0  
+**Writeup written by**: Noor Ul Hassan  
+**Category**: Forensics  
+**Difficulty**: Medium
+
+---
 
 ## Approach & Solution
-Download the pcap file and open it  
 
-![.pcap file opened in wireshark](./images/ss1.png)  
+1. **Download the pcap file and open it in Wireshark**  
+   Open the provided `.pcap` file using Wireshark and inspect the captured packets.  
+   ![PCAP File Opened in Wireshark](./images/ss1.png)
 
-Now check the ICMP Header and then data:  
+2. **Analyze ICMP Header and Data**  
+   Check the ICMP Header and the data.  
+   ![ICMP Data](./images/ss2.png)
 
-![.pcap file opened in wireshark](./images/ss2.png)  
+3. **Decode the Data**  
+   Copy the decoded value from the ICMP packet and paste it into [dcode.fr](https://www.dcode.fr/), as the data is in ASCII format.  
+   ![Decoding with dcode.fr](./images/ss3.png)  
+   After decoding, you will find a Google Drive link. Copy this link and paste it into your browser.
 
-Copy this as value and then paste it in dcode.fr (This is an ASCII) and decode it.  
+4. **Access the Google Drive**  
+   Go to the "SUDO FUZZERS" folder on Google Drive and analyze its contents.  
+   ![Google Drive Folder](./images/ss4.png)
 
-![decode.fr](./images/ss3.png)  
+5. **Open the `ReadmeMUST.txt`**  
+   Inside the folder, open the `ReadmeMUST.txt`. It instructs you to combine files, but it doesn’t specify which files to combine. We'll address that later.  
+   ![ReadmeMUST.txt](./images/ss5.png)
 
-As you can see, there is a Google Drive link. Copy this and paste it into your browser. Go to the SUDO FUZZERS folder and analyze it.  
+6. **Download and Extract `DownloadME.zip`**  
+   Download the suspicious file `DownloadME.zip` and extract its contents.  
+   ![Extracting DownloadME.zip](./images/ss6.png)
 
-![drive](./images/ss4.png)  
+7. **Extract the Part Files**  
+   After extraction, you will see four `.zip` files named `part0`, `part1`, and so on. Use the hint from the `ReadmeMUST.txt` to combine all of them into one folder.  
+   ![Extracting Parts](./images/ss7.png)  
+   Combine and place them into a single folder for further analysis.  
+   ![Combining Parts](./images/ss8.png)
 
-Open the ReadmeMUST.txt  
+8. **Open the Kali VM**  
+   The files extracted seem to be related to a Kali VM machine. Open it in VMware.  
+   ![Opening VM](./images/ss9.png)  
+   Power on the VM.  
+   ![Power on VM](./images/ss10.png)
 
-![ReadmeMUST.txt](./images/ss5.png)  
+9. **Find the Snapshot File**  
+   The VM will ask for a snapshot file with the `.vmsn` extension. Browse and select the file `kali-linux-2024.3-vmware-amd64.vmxf`.  
+   ![Finding Snapshot](./images/ss11.png)  
+   ![Browsing Snapshot](./images/ss12.png)
 
-This says to combine all of the files, but which files? We will see later. Now, download the DownloadME.zip as it seems suspicious.  
-After the download is complete, extract the file.  
+10. **Login to the Kali VM**  
+    The VM will prompt for a username and password. Use the default credentials:  
+    - Username: `kali`  
+    - Password: `kali`  
+    ![Kali Login](./images/ss13.png)
 
-![Extracting DownloadME.zip](./images/ss6.png)  
+11. **Explore the Kali Desktop**  
+    Upon login, you will see many folders on the desktop, which contain false flags.  
+    ![Kali Desktop](./images/ss14.png)
 
-After extraction, you will see four more .zip files named as part0, part1, and so on. Here, we will use the hint of combining all the files in one folder. Extract all of them and then place them in one folder.  
+12. **Check Hidden Files**  
+    Go to the *home* directory and press `CTRL+H` to reveal hidden files. Open the `bash_history` file.  
+    ![bash_history](./images/ss15.png)
 
-![Extracting parts](./images/ss7.png)  
+13. **Analyze the bash_history**  
+    In the `bash_history`, you will find that the folders `flagyahanhe169` and `flagyahanhe239` were visited by the previous user.  
+    ![bash_history](./images/ss16.png)
 
-Now, I have combined all of them in a separate folder.  
+14. **Access the Folder `flagyahanhe239`**  
+    In the folder `flagyahanhe239`, there is an encrypted folder and a script to unlock it.  
+    ![flagyahanhe239](./images/ss17.png)
 
-![Combining them](./images/ss8.png)  
+15. **Make the Script Executable**  
+    The script cannot be opened directly due to permission issues. Use the following commands in the terminal to make it executable:
 
-As you can see from the files, this is a Kali VM machine and now we simply need to open it in VMware.  
-
-![Opening VM](./images/ss9.png)  
-
-Power on the machine  
-
-![Power on the VM](./images/ss10.png)  
-
-The machine will ask for a snapshot file to open the VM with the extension .vmsn  
-
-![finding snapshot](./images/ss11.png)  
-
-Click on browse, select type as **All files**, and choose **"kali-linux-2024.3-vmware-amd64.vmxf"**  
-
-![browsing snapshot](./images/ss12.png)  
-
-Your VM will load and will ask for the username and password. By default, the username and password of the Kali machine are `kali` and `kali`, and this works in this case.  
-
-![kali](./images/ss13.png)  
-
-You will now see a lot of folders on the *Desktop* containing false flags:  
-
-![kali Desktop](./images/ss14.png)  
-
-Now go to the *home* directory and press *CTRL+H*. This will show all the hidden files. Click on the *bash_history* file.  
-
-![bash history](./images/ss15.png)  
-
-In the bash history file, we found that the folders **flagyahanhe169** and **flagyahanhe239** were visited by the previous user.  
-
-![bash history](./images/ss16.png)  
-
-Now, when we visit **flagyahanhe239**, we find one encrypted folder and one script to unlock that folder.  
-
-![flagyahanhe239](./images/ss17.png)  
-
-Now, when we try to open the script, it says we do not have permission. So open the terminal here and use the following command:  
-
-```bash
-sudo chmod +x unlock_folder.sh
-# Command used to make the script executable
-
-Now run the following command:
-
+    ```bash
+    sudo chmod +x unlock_folder.sh
     sudo nano unlock_folder.sh
+    ```
 
-this will open the script in the editor and now you can see the content of the file:
+    This will open the script in the editor.  
+    ![Script](./images/ss18.png)
 
-![script](./images/ss18.png)  
+16. **Create the Key File**  
+    The script requires a key, which should be stored in a `key.txt` file in the same directory as the script.  
+    ![key.txt](./images/ss19.png)
 
-Now from the code we know that the script need a key and key.txt file which contains the key in the same directory as the script. So we wil create the key.txt file
+17. **Find the Key**  
+    There are two ways to find the key:
+    - **Option 1**: Check the `.zsh_history` file on the Kali system for the key.
+    - **Option 2**: Use the metadata from the `cr7.jpg` image on the Google Drive using [ExifTool](https://exiftool.org/) to find the comment with the key.
 
-![key.txt](./images/ss19.png)
+    We will go with **Option 1**, but both methods should lead to the same key.  
+    ![zsh_history](./images/ss20.png)
 
-Now the only thing we need is the key. Now where we will find the key?? Now there are two ways one is in the kali system and other is in the google drive form where we downloaded the kali machine. I will go with 1st one but will also tell you about the 2nd one.
+18. **Run the Script to Unlock the Folder**  
+    After obtaining the key, create the `key.txt` file, place the key in it, and run the script to unlock the folder.  
+    ![Unlocking Folder](./images/ss21.png)  
+    ![Unlocked Folder](./images/ss22.png)
 
-Go to the home directory and find the .zsh_history. Analyze the file there you will find the cr7.jpg file and the author using exiftool pushed a comment to that picture. You will find the picture in the drive and use exiftool to find the comment but we can also find it here in the .zsh_history.
+19. **Extract the Flag**  
+    In the unlocked folder, you will find the flag inside a text file.  
+    ![Flag](./images/ss24.png)
 
-![zsh_history](./images/ss20.png)
+---
 
-Now paste this key in the key.txt file and run the script it will unlock the folder.
+## Conclusion
 
+You have successfully completed the challenge by decoding the ICMP data, analyzing the Google Drive contents, extracting the Kali VM, and using the correct key to unlock the folder. The final flag is now obtained.
 
-![](./images/ss21.png)
-
-![](./images/ss22.png)
-
-Now the folder has unlocked.
-
-![](./images/ss23.png)
-
-Now in the folder in the txt file you will find the flag.
-
-![Flag](./images/ss24.png)
-
-Write .md file in a good way 
